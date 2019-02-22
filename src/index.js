@@ -6,12 +6,15 @@ import './Styles/index.css';
 import App from './Containers/App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './Reducers/index'
+import { Route, HashRouter } from 'react-router-dom'
 
 const store = createStore(reducer)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <HashRouter>
+      <Route path="/" component={App} />
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 );
