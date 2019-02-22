@@ -1,9 +1,12 @@
 import React from 'react'
 
-// First we import some modules...
-import { Router, Route } from 'react-router'
+import { Route, Switch } from 'react-router-dom'
 import Home from '../Home/Home'
-import connect from 'react-redux/lib/connect/connect';
+import { connect } from 'react-redux'
+import styles from '../../Styles/LayoutStyles'
+import {
+  withStyles
+} from '@material-ui/core'
 
 export class Layout extends React.Component {
   componentDidMount() {
@@ -11,8 +14,17 @@ export class Layout extends React.Component {
   }
 
   render() {
+    const {
+      classes
+    } = this.props
     return (
-      <Home />
+      <div>
+        <Switch>
+          <div id="content" className={classes.content}>
+            <Route exact path="/" component={Home} />
+          </div>
+        </Switch>
+      </div>
     )
   }
 }
@@ -29,4 +41,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout)
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Layout))

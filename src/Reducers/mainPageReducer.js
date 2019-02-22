@@ -1,5 +1,5 @@
 const initialState = {
-
+  message: 'Hello World',
 }
 
 export default function(state = initialState, action) {

@@ -6,18 +6,26 @@ import './Styles/index.css';
 import App from './Containers/App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './Reducers/index'
-import { Route, HashRouter } from 'react-router-dom'
 
 const store = createStore(reducer)
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
-      <Route path="/" component={App} />
-    </HashRouter>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
+
+if (module.hot) {
+  module.hot.accept('./Containers/App', () => {
+    const NextApp = require('./Containers/App').default
+    ReactDOM.render(
+      <Provider store={store}>
+        <NextApp />
+      </Provider>
+    )
+  })
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

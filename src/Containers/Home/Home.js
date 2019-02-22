@@ -8,21 +8,25 @@ import styles from '../../Styles/HomeStyles'
 
 export class Home extends React.Component {
   render() {
+    const {
+      classes,
+      message,
+    } = this.props
     return (
-      <Paper> Hello World </Paper>
+      <Paper className={classes.main}> {message} </Paper>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-
+    message: state.mainPageReducer.message,
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-
+    
   }
 }
 
