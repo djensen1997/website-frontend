@@ -27,7 +27,7 @@ const unkown = () => {
 
 const App = () => {
   return (
-    <div style={{backgroundColor: 'grey'}}>
+    <div>
       <BrowserRouter>
         <Switch>
           <Route path="/" component={Layout} />

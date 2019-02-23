@@ -1,0 +1,2 @@
+export const SET_PAGE_NAME = 'SET_PAGE_NAME'
+export const TOGGLE_SIDE_NAV = 'TOGGLE_SIDE_NAV'
